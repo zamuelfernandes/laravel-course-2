@@ -24,6 +24,11 @@
                                     <td>
                                         <a href="{{ route('categories.edit', $category) }}" ,
                                             class="font-semibold text-gray-800 leading-tight underline">Edit</a>
+                                        <form method="POST" action="{{ route('categories.destroy', $category) }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" onclick="return confirm('Are you sure?')"
+                                                class="font-semibold text-gray-800 leading-tight underline">Delete</button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -33,5 +38,6 @@
             </div>
         </div>
     </div>
+
 
 </x-app-layout>
